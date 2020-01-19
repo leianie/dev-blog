@@ -64,5 +64,11 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  /*
+  ** Environment variables
+  */
+  env: {
+    url: 'http://localhost:1337'
   }
 }

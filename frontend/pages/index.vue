@@ -1,24 +1,15 @@
 <template>
   <div>
-    <div class="container mx-auto">
-      <header class="text-center m-16 text-4xl text-winter">
-        idk_games
-      </header>
-      <nav class="text-center text-blue-800 mb-2">
-        .
-        <a href="" class="text-blue-500 visited:text-purple-500">home</a>
-        .
-        <a href="" class="text-blue-500 visited:text-purple-500">about</a>
-        .
-        <a href="" class="text-blue-500 visited:text-purple-500">contact</a>
-        .
-      </nav>
-    </div>
-    <section class="container mx-auto bg-blue-800 p-10 lg:w-2/4">
-      <article>
-        <div class="text-winter text-2xl">
-          Sample Title
-        </div>
+    <section class="container mx-auto bg-blue-800 px-10 pb-10 lg:w-3/4">
+      <div class="pt-4">
+        <span :key="category.id" v-for="category in categories">
+          <router-link :to="{ name: 'categories-id', params: { id: category.id } }" class="hover:text-blue-500 active:text-blue-500">
+            {{ category.name }}
+          </router-link>.
+        </span>
+      </div>
+      <article class="mx-auto lg:w-4/5">
+        <Articles :articles="articles" />
       </article>
     </section> 
   </div>
@@ -26,11 +17,32 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import categoriesQuery from '~/apollo/queries/category/categories'
+import articlesQuery from '~/apollo/queries/article/articles'
+import Articles from '~/components/Articles'
 
 export default {
   components: {
-    Logo
+    Articles
+  },
+  data() {
+    return {
+      categories: [],
+      articles: []
+    }
+  },
+  apollo: {
+    categories: {
+      prefetch: true,
+      query: categoriesQuery
+    },
+    articles: {
+      prefetch: true,
+      query: articlesQuery,
+      variables() {
+        return { id: parseInt(this.$route.params.id) }
+      }
+    }
   }
 }
 </script>
