@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc19",
+    "@nuxtjs/markdownit": "^1.2.7",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

@@ -44,7 +44,18 @@ export default {
   */
   modules: [
     '@nuxtjs/apollo',
+    '@nuxtjs/markdownit'
   ],
+  /*
+  ** Markdownit options
+  */
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    html: true,
+    linkify: true,
+    breaks: false,
+  },
   /*
   ** Apollo configuration
   */
