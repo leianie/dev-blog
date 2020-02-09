@@ -2,11 +2,11 @@
   <div>
     <div class="container mx-auto">
       <header class="text-center m-16 text-4xl text-winter">
-        idk_games
+        insert_name
       </header>
       <nav class="text-center text-blue-800 mb-2">
         .
-        <a href="" class="text-blue-500 visited:text-purple-500 hover:text-winter">home</a>
+        <a href="/" class="text-blue-500 visited:text-purple-500 hover:text-winter">home</a>
         .
         <a href="" class="text-blue-500 visited:text-purple-500 hover:text-winter">about</a>
         .
